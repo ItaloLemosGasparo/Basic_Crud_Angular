@@ -3,10 +3,9 @@ Just a basic crud made based on a course I'm taking
 
 # Pics
 
-<img style="width: 640px" scr="https://uploaddeimagens.com.br/images/003/781/309/original/1.png?1647654486" alt="pic1">
+<img style="width: 640px" src="https://uploaddeimagens.com.br/images/003/781/309/original/1.png?1647654486" alt="pic1">
 <br>
-<img style="width: 640px" scr="https://uploaddeimagens.com.br/images/003/781/312/original/2.png?1647654596" alt="pic2">
-
+<img style="width: 640px" src="https://uploaddeimagens.com.br/images/003/781/312/original/2.png?1647654596" alt="pic2">
 
 # Angular things bellow 
 
