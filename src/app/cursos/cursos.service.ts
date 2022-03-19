@@ -4,11 +4,13 @@ import { Curso } from './Curso';
 @Injectable({
   providedIn: 'root'
 })
-export class CursosService {
 
+//Classe
+export class CursosService {
+  //Construtor
   constructor() { }
 
-  //Vetor de Cursos
+  //Vetor de Cursos e os cursos pré adicionados.
   public vetorCursos:Curso[] = [
     new Curso("Angular",800,"Desenvolvimento"),
     new Curso("PHP",590,"Desenvolvimento"),

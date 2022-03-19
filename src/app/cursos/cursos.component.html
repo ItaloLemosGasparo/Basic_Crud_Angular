@@ -1,7 +1,11 @@
 <!-- Formulário -->
 <form>
     <!-- [(ngModel)] é um "double bind" oque significa que ele 
-    tanto manda quanto recebe informações do arquivo "cursos.component.ts" -->
+    tanto manda quanto recebe informações do arquivo "cursos.component.ts" 
+    Para usalo é preciso adicionar: import { FormsModule } from '@angular/forms';
+    no aruivo "app.module.ts" e adicinar ele "imports:". Ex: imports: [BrowserModule, FormsModule] 
+    o campo name é uma referencia para o [(ngModel)] funcionar direito 
+    ou "entender com oque ele esta lidando"(Segundo o professor) -->
     <input type="text" placeholder="Curso"   [(ngModel)]="this.curso.nomeCurso"  name="nomeCurso">
     <input type="number" placeholder="Valor" [(ngModel)]="this.curso.valorCurso" name="valorCurso">
     <input type="text" placeholder="Área"    [(ngModel)]="this.curso.areaCurso"  name="areaCurso">
@@ -19,12 +23,10 @@
         <td>Área</td>
         <td>Ações</td>
     </tr>
-
     <tr *ngFor="let curso of this.vetorCursos; let id=index">
         <td>{{curso.nomeCurso}}</td>
         <td>{{curso.valorCurso}}</td>
         <td>{{curso.areaCurso}}</td>
-
         <td>
             <button (click)="editar(id)">Editar</button>
             <button (click)="excluir(id)">Excluir</button>
