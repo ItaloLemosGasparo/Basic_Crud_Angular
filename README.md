@@ -1,3 +1,9 @@
+# Just a basic crud made based on a course I'm taking
+
+##
+
+# Angular things bellow
+
 # CrudAngular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
