@@ -26,7 +26,7 @@ export class CursosService {
   }
 
   //Alteração de Curso
-  public editar(id:number, curso:Curso){
+  public alterar(id:number, curso:Curso){
     this.vetorCursos[id] = curso
   }
 

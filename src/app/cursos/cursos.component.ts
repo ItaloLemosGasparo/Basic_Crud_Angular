@@ -10,7 +10,9 @@ import { CursosService } from './cursos.service';
 })
 
 export class CursosComponent implements OnInit {
-  //Atributos
+  // Atributos
+  // Só estou conseguindo criar variáveis com valor = "indefinido" por alterar o arquivo "tsconfig.json"
+  // Adicionei ( "strictPropertyInitialization": false, ) logo a baixo de ( "strict": true, ). Sem os parenteses.  
   public vetorCursos:Curso[];
   public curso:Curso;
   public id:number;
@@ -20,33 +22,40 @@ export class CursosComponent implements OnInit {
 
   ngOnInit() { 
     this.id = -1;
-    this.curso = {} as Curso; // isso é igual a isso this.curso = new Curso; (Teoricamente).
+    this.curso = {} as Curso; // "{} as Curso;" equivale a um "new Curso()". Aparentemente isso mudou com as atualizações do Angular
     this.vetorCursos = this.servico.listar();
   }
 
-  //estas funções estão por parte vindo do arquivo servico
+  //As funções abaixo estão parcialmente vindo do arquivo "cursos.service.ts" 
+  //que foi ""importado"" na linha 21 com o nome sendo servico mas, aparentemente poderia ser qualquer nome.
   //cadastrar
   cadastrar(){
     this.servico.cadastrar(this.curso);
-    this.curso = {} as Curso; // isso é igual a isso this.curso = new Curso; (Aparentemente é isso mesmo).
+    this.curso = {} as Curso; 
   }
 
   //excluir
   excluir(id:number){
+    //This significa que é o ID declarado la em cima com escopo global. já sem o this significa que é o ID local da função
     this.servico.ecluir(id);
-    this.id = -1;
     this.curso = {} as Curso;
+    this.id = -1;
   }
 
   //Editar
   editar(id:number){
     this.id = id;
+    //Quebra de linha meramente para ficar mais legivel.
     this.curso = new Curso(
       this.vetorCursos[id].nomeCurso,
       this.vetorCursos[id].valorCurso,
       this.vetorCursos[id].areaCurso
     );
-
   }
-
+  //Atualiar
+  atualizar(){
+    this.servico.alterar(this.id, this.curso);
+    this.curso = {} as Curso;
+    this.id = -1;
+  }
 }

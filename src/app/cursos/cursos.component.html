@@ -1,10 +1,14 @@
 <!-- Formulário -->
 <form>
+    <!-- [(ngModel)] é um "double bind" oque significa que ele 
+    tanto manda quanto recebe informações do arquivo "cursos.component.ts" -->
     <input type="text" placeholder="Curso"   [(ngModel)]="this.curso.nomeCurso"  name="nomeCurso">
     <input type="number" placeholder="Valor" [(ngModel)]="this.curso.valorCurso" name="valorCurso">
     <input type="text" placeholder="Área"    [(ngModel)]="this.curso.areaCurso"  name="areaCurso">
+    <!-- *ngIf esta verificando a variavel ID do arquivo "cursos.component.ts"
+    e se a condição for atendida o button fica visivel ou não-->
     <input type="button" value="Cadastrar" (click)="cadastrar()" *ngIf="this.id<0">
-    <input type="button" value="editar" *ngIf="this.id>=0">
+    <input type="button" value="editar" (click)="atualizar()" *ngIf="this.id>=0">
 </form>
 
 <!-- Tabea -->
